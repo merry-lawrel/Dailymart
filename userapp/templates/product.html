@@ -1,0 +1,39 @@
+{% extends 'userindex.html' %}
+{% block content %}
+<!-- Fruits Shop Start-->
+<div>
+<div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <div class="tab-class text-center">
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                {% for i in prdata %}
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a href="{% url 'singleprd' id=i.id %}"><img src="{{i.productimg.url}}" class="img-fluid w-100 rounded-top" alt="" style="height: 300px;"></a>
+                                        </div>
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{i.productcat}}</div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h4>{{i.productname}}</h4>
+
+                                                <p class="text-dark fs-5 fw-bold mb-0">Rs {{i.productprc}} / {% if i.productcat == 'Fruits' %} kg {% elif i.productcat == 'Vegetables' %} kg {% else %} L {% endif %}</p>
+                                               
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

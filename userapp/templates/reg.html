@@ -1,0 +1,24 @@
+{% extends 'userindex.html' %}
+{% block content %}
+<div class="container-fluid contact py-5" style="background-color: darkolivegreen;">
+    <div class="container py-5">
+        <div class="p-5 bg-light rounded" >
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="col-12">
+                        <form action="{% url 'getreg' %}" method="post">
+                            {% csrf_token %}
+                            <input type="text" name="rname" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name">
+                            <input type="password" name="rpswd" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your password">
+                            <input type="email" name="rmail" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email">
+                            <textarea name="radd" class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Address"></textarea>
+                            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
