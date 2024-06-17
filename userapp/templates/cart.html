@@ -16,28 +16,34 @@
     <!-- Cart Page Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
-            <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th scope="col">Products</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total</th>
-                        <th>Handle</th>
-                    </tr>
-                {% for i in data %}
-                    <tr>
-                        <td><img src="{{i.prdid.productimg.url}}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt=""></td>
-                        <td>{{i.prdid.productname}}</td>
-                        <td>{{i.prdid.productprc}}</td>
-                        <td>{{i.cqty}}</td>
-                        <td>{{i.ctot}}</td>
-                    </tr>
-                {% endfor %}
-                </table>
-            </div>
-            <a href="{% url 'checkout' %}"><button class="w-50 btn form-control border-secondary py-3 bg-white text-primary ">Checkout</button></a>
+            {% if not data %}
+                <br><br>
+                <h4>Cart Empty ! Add items that you need!</h4>
+                <br>
+            {% else %}
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th scope="col">Products</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th>Handle</th>
+                        </tr>
+                    {% for i in data %}
+                        <tr>
+                            <td><img src="{{i.prdid.productimg.url}}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt=""></td>
+                            <td>{{i.prdid.productname}}</td>
+                            <td>{{i.prdid.productprc}}</td>
+                            <td>{{i.cqty}}</td>
+                            <td>{{i.ctot}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+                <a href="{% url 'checkout' %}"><button class="w-50 btn form-control border-secondary py-3 bg-white text-primary ">Checkout</button></a>
+            {% endif %}
         </div>
        
     </div>

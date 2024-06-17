@@ -58,17 +58,17 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="{% url 'userindex' %}" class="nav-item nav-link active">Home</a>
+                            <a href="{% url 'userindex' %}" class="nav-item nav-link active"><strong>Home</strong></a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Categories</b></a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                     {% for i in cdata %}
-                                        <a href="#catjump" class="dropdown-item">{{i.categoryname}}</a>
+                                        <a href="#catjump" class="dropdown-item"><b>{{i.categoryname}}</b></a>
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Products</b></a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                     {% for i in pdata %}
                                         <a href="{% url 'singleprd' id=i.id %}" class="dropdown-item">{{i.productname}}</a>
@@ -76,12 +76,12 @@
                                 </div>
                             </div>
                             {% if 'uid' in request.session %}
-                            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                            <a href="{% url 'contact' %}" class="nav-item nav-link"><b>Contact</b></a>
                             <label class="nav-item nav-link"><strong>Hello, {{request.session.uname}}</strong></label>
-                            <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+                            <a href="{% url 'logout' %}" class="nav-item nav-link"><b>Logout</b></a>
                             {% else %}
-                            <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
-                            <a href="{% url 'reg' %}" class="nav-item nav-link">Register</a>
+                            <a href="{% url 'login' %}" class="nav-item nav-link"><b>Login</b></a>
+                            <a href="{% url 'reg' %}" class="nav-item nav-link"><b>Register</b></a>
                             {% endif %}
                         </div>
                         <div class="d-flex m-3 me-0">                            
